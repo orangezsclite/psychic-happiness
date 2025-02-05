@@ -1,0 +1,59 @@
+//逐字输出
+void o(const string a) { //output
+	size_t len = a.size();
+
+	for (int i = 0; i < a.size(); i++) {
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),
+		                        FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+		cout << a[i];
+		fflush(stdin);
+		Sleep(20);
+	}
+}
+
+const int blue = 0, yellow = 1, red = 2, green = 3, purple = 4, white = 5; //颜色常量
+
+void o_c(const string a, int c) { //output_color
+	size_t len = a.size();
+
+	for (int i = 0; i < a.size(); i++) {
+		switch (c) {
+			case red:
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_RED);
+				cout << a[i];
+				break;  //红色原色
+
+			case green:
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_GREEN);
+				cout << a[i];
+				break;  //绿色原色
+
+			case yellow:
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
+				cout << a[i];
+				break;  //黄色：红色和绿色相加
+
+			case blue:
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_BLUE);
+				cout << a[i];
+				break;  //蓝色原色
+
+			case white:
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),
+				                        FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+				cout << a[i];
+				break;  //白色：三原色相加
+
+			case purple:
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_BLUE);
+				cout << a[i];
+				break;  //紫色：红色和蓝色相加
+		}
+
+		fflush(stdin);
+		Sleep(20);
+	}
+
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),
+	                        FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+}
